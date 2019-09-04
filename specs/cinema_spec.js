@@ -46,11 +46,11 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, [moonlight, trainspotting])
   });
   it('should be able to check whether there are some films from a particular year', function() {
-    const actual = cinema.searchFilmsByYear(2017)
+    const actual = cinema.checkFilmsByYear(2017)
     assert.deepStrictEqual(actual, true)
   });
   it('should be able to check whether there are no films from a particular year', function() {
-    const actual = cinema.searchFilmsByYear(2020)
+    const actual = cinema.checkFilmsByYear(2020)
     assert.strictEqual(actual, false)
   });
   it('should be able to check whether all films are over a particular length', function () {
@@ -61,5 +61,15 @@ describe('Cinema', function () {
     const actual = cinema.totalRunningTimeOfFilms()
     assert.strictEqual(actual, 622)
   });
+
+  it('should be able to filter films by year', function () {
+    const actual = cinema.filterFilmsByYear(2017)
+    assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting])
+  })
+
+  it('should be able to search by property name & value', function () {
+    const actual = cinema.filmsByProperty("year", 2018)
+    assert.deepStrictEqual(actual, [blackPanther])
+  })
 
 });

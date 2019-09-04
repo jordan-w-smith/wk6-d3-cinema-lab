@@ -19,7 +19,7 @@ Cinema.prototype.searchFilmByGenre = function (genre) {
   return this.films.filter((film) => film.genre === genre)
 }
 
-Cinema.prototype.searchFilmsByYear = function (year) {
+Cinema.prototype.checkFilmsByYear = function (year) {
   const foundFilms = this.films.filter((film) => film.year === year)
   if (foundFilms.length > 0) {
     return true
@@ -47,6 +47,15 @@ Cinema.prototype.totalRunningTimeOfFilms = function () {
 
 }
 
+Cinema.prototype.filterFilmsByYear = function (year) {
+  const foundFilms = this.films.filter((film) => film.year === year)
+  return foundFilms
+}
+
+Cinema.prototype.filmsByProperty = function (nameOfProperty, valueOfProperty) {
+  const foundFilms = this.films.filter((film) => film[nameOfProperty] === valueOfProperty)
+  return foundFilms;
+};
 
 
 
