@@ -40,9 +40,11 @@ Cinema.prototype.checkLengthGreaterThan = function (length) {
 }
 
 Cinema.prototype.totalRunningTimeOfFilms = function () {
-  return total = this.films.reduce((runningTotal, film.length) => {
-    return runningTotal + film.length
-  })
+  let total = this.films.reduce((runningTotal, film) => {
+    return runningTotal + film.length;
+  }, 0);
+  return total;
+
 }
 
 
